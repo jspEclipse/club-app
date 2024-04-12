@@ -1,7 +1,7 @@
 export default function About() {
 
  return(
-    <div>
+    <div style={{height:"100vh"}}>
         About us
     </div>
  )   

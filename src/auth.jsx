@@ -54,6 +54,27 @@ function SignUp() {
                         className="input input-primary w-full max-w-xs"
                     />
                 </label>
+                <label className="form-control w-full max-w-xs">
+                    <div className="label">
+                        <span className="label-text">name</span>
+                    </div>
+                    <input
+                        type="text"
+                        name="full_name"
+                        placeholder="name@domain.com"
+                        className="input input-primary w-full max-w-xs"
+                    />
+                </label>
+                <label className="form-control w-full max-w-xs">
+                    <div className="label">
+                        <span className="label-text">graduation year</span>
+                    </div>
+                    <input
+                        type="number"
+                        name="grad_year"
+                        className="input input-primary w-full max-w-xs"
+                    />
+                </label>
                 <button className="btn btn-primary">Sign Up</button>
             </form>
             {error && <div className="text-error  text-center mt-2">{error}</div>}

@@ -2,6 +2,9 @@ import { useEffect, useState, createContext } from "react";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import { supabase } from "./supabaseClient";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Auth from "./auth";
 import UserHome from "./home";
 import About from "./about"
@@ -24,7 +27,7 @@ export default function App() {
 
 
   return (
-    <div style={{height:"100vh"}}>
+    <div>
       <AppContext.Provider value={{ user }}>
         <Routes>
           <Route path="/" element={<Layout/>}>
@@ -45,21 +48,21 @@ function Layout(){
 
 
   return(
-    <div>
-      <div>
-        <div>
+    <div className="min-h-screen flex flex-col">
+      <div className="flex items-center border-b boorder-primary p-5 space-x-5">
+        <div className="text-xl font-bold">
           <Link to="/">btree</Link>
         </div>
-        <div>
-          <Link to="/">About Us</Link>
+        <div className="flex-grow">
+          <Link to="/about">About Us</Link>
         </div>
         <div>
-          <button onClick={signOut} className = "btn btn-error">
+          {user && (<button onClick={signOut} className = "btn btn-sm btn-error">
             Sign Out
-          </button>
+          </button>)}
         </div>
       </div>
-      {user ? <Outlet /> : <Auth />}
+      <div   className="flex-grow p-5">{user ? <Outlet /> : <Auth />}</div>
     </div>
   )
 }
